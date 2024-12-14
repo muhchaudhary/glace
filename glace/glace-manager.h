@@ -31,6 +31,8 @@ struct _GlaceManagerClass {
 
     // methods
     void (*capture_client)(GlaceManager* self, GlaceClient* client, gboolean overlay_cursor, GlaceManagerCaptureClientCallback callback, gpointer user_data, GDestroyNotify notify);
+    void (*capture_client_handle)(GlaceManager* self, gint handle, gboolean overlay_cursor, GlaceManagerCaptureClientCallback callback, gpointer user_data, GDestroyNotify notify);
+
 };
 
 struct _GlaceManagerPrivate {
