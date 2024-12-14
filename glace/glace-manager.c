@@ -422,7 +422,7 @@ void glace_manager_capture_client_handle(GlaceManager* self, gint handle, gboole
 
     GlaceFrameData* data = calloc(1, sizeof(GlaceFrameData));
     data->manager = self;
-    data->client = client;
+    data->client = handle;
     data->callback = callback;
     data->callback_data = user_data;
     data->buffer = NULL;
