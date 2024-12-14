@@ -17,7 +17,6 @@
       pkg-config
       ninja
       vala
-      wayland-scanner
     ];
 
     buildInputs = with pkgs; [
