@@ -52,7 +52,7 @@ enum {
 GType glace_manager_get_type();
 GlaceManager* glace_manager_new();
 void glace_manager_capture_client(GlaceManager* self, GlaceClient* client, gboolean overlay_cursor, GlaceManagerCaptureClientCallback callback, gpointer user_data, GDestroyNotify notify);
-
+void glace_manager_capture_client_handle(GlaceManager* self, gint handle, gboolean overlay_cursor, GlaceManagerCaptureClientCallback callback, gpointer user_data, GDestroyNotify notify);
 G_END_DECLS
 
 #endif /* __LIBGLACE_MANAGER_H__ */
