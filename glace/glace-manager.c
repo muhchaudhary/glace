@@ -402,6 +402,7 @@ void glace_manager_capture_client(GlaceManager* self, GlaceClient* client, gbool
     data->callback = callback;
     data->callback_data = user_data;
     data->buffer = NULL;
+    data->handle = -1;
 
     struct hyprland_toplevel_export_frame_v1* frame = hyprland_toplevel_export_manager_v1_capture_toplevel_with_wlr_toplevel_handle(
         self->priv->hl_export_manager, (gint)overlay_cursor, client->priv->wlr_handle
@@ -412,7 +413,6 @@ void glace_manager_capture_client(GlaceManager* self, GlaceClient* client, gbool
     return;
 }
 
-
 void glace_manager_capture_client_handle(GlaceManager* self, gint handle, gboolean overlay_cursor, GlaceManagerCaptureClientCallback callback, gpointer user_data, GDestroyNotify notify) {
     if (!self->priv->hl_export_manager) {
         g_warning_once("at the moment, capturing a client is only available for Hyprland users.");
@@ -422,10 +422,11 @@ void glace_manager_capture_client_handle(GlaceManager* self, gint handle, gboole
 
     GlaceFrameData* data = calloc(1, sizeof(GlaceFrameData));
     data->manager = self;
-    data->client = handle;
+    data->client = NULL;
     data->callback = callback;
     data->callback_data = user_data;
     data->buffer = NULL;
+    data->handle = handle;
 
     struct hyprland_toplevel_export_frame_v1* frame = hyprland_toplevel_export_manager_v1_capture_toplevel(
         self->priv->hl_export_manager, (gint)overlay_cursor, (gint)handle
