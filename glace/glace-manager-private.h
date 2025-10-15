@@ -40,7 +40,7 @@ struct _GlaceFrameBuffer {
 struct _GlaceFrameData {
     GlaceManager* manager;
     GlaceClient* client;
-    gint handle;
+    gint64 handle;
 
     GlaceFrameBuffer* buffer;
 
